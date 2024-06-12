@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasta Takip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #hastaListesi {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        #hastaListesi li {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #hastaListesi li button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #hastaListesi li button:hover {
+            background-color: #c82333;
+        }
+
+        #hastaEkleForm {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #hastaEkleForm label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        #hastaEkleForm input[type="text"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+        #hastaEkleForm button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #hastaEkleForm button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hasta Takip</h1>
+
+    <h2>Hastalar</h2>
+    <ul id="hastaListesi">
+        <!-- Burada hastaların listesi dinamik olarak oluşturulacak -->
+    </ul>
+
+    <h2>Hasta Ekle</h2>
+    <form id="hastaEkleForm">
+        <label for="hastaAdi">Hasta Adı:</label>
+        <input type="text" id="hastaAdi" name="hastaAdi" required><br><br>
+
+        <button type="submit">Hasta Ekle</button>
+    </form>
+
+    <script>
+        // Hastaları saklamak için bir dizi oluştur
+        var hastalar = [];
+
+        // Hasta ekleme formunu dinle
+        document.getElementById('hastaEkleForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Sayfanın yenilenmesini engelle
+
+            // Formdaki veriyi al
+            var hastaAdi = document.getElementById('hastaAdi').value;
+
+            // Hasta adını diziyi kontrol et
+            if (!hastaAdi || hastalar.includes(hastaAdi)) {
+                alert("Hasta adı boş olamaz veya aynı hasta zaten mevcut!");
+                return;
+            }
+
+            // Yeni hastayı diziye ekle
+            hastalar.push(hastaAdi);
+
+            // Hastalar listesini güncelle
+            guncelleHastaListesi();
+
+            // Formu sıfırla
+            document.getElementById('hastaEkleForm').reset();
+        });
+
+        // Hastalar listesini güncelleme fonksiyonu
+        function guncelleHastaListesi() {
+            var hastaListesiHTML = '';
+            hastalar.forEach(function(hasta) {
+                hastaListesiHTML += `<li>${hasta} <button onclick="hastaCikar('${hasta}')">Çıkar</button></li>`;
+            });
+            document.getElementById('hastaListesi').innerHTML = hastaListesiHTML;
+        }
+
+        // Hasta çıkarma fonksiyonu
+        function hastaCikar(hastaAdi) {
+            // Hasta adını diziden kaldır
+            var index = hastalar.indexOf(hastaAdi);
+            if (index !== -1) {
+                hastalar.splice(index, 1);
+
+                // Hastalar listesini güncelle
+                guncelleHastaListesi();
+            }
+        }
+    </script>
+</body>
+</html>

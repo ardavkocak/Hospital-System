@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hasta Bilgi ve Randevu Yönetimi</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .button-container {
+        text-align: center;
+    }
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff; /* Mavi */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 10px; /* Butonlar arası boşluk */
+        width: 200px; /* Buton genişliği */
+    }
+    .button:hover {
+        background-color: #0056b3; /* Koyu Mavi */
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Hasta Bilgi ve Randevu Yönetimi</h1>
+    <div class="button-container">
+        <a href="http://127.0.0.1:8000/BilgiGuncelle"><button class="button">Bilgileri Güncelle</button></a>
+        <a href="http://127.0.0.1:8000/RandevuIslemleri"><button class="button">Randevu Al</button></a>
+        <a href="http://127.0.0.1:8000/RandevuSil"><button class="button">Randevu İptal</button></a>
+        <a href="http://127.0.0.1:8000/RandevuIslemleri"><button class="button">Randevu Güncelle</button></a>
+    </div>
+</div>
+
+<script>
+    function bilgileriGuncelle() {
+        alert("Bilgileriniz başarıyla güncellendi!");
+    }
+
+    function randevuAl() {
+        alert("Randevunuz başarıyla alındı!");
+    }
+
+    function randevuIptal() {
+        alert("Randevunuz başarıyla iptal edildi!");
+    }
+
+    function randevuGuncelle() {
+        alert("Randevunuz başarıyla güncellendi!");
+    }
+</script>
+
+</body>
+</html>

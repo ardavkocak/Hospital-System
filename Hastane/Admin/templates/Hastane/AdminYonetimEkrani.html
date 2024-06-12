@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .feature {
+            flex: 0 1 45%;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .feature ul li {
+            margin-bottom: 5px;
+        }
+
+        .feature ul li a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .feature ul li a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <div class="features">
+            <div class="feature">
+                <h2>Doktor İşlemleri</h2>
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/DoktorEkle" class="button">Doktor Ekleme</a></li>
+                    <li><a href="http://127.0.0.1:8000/DoktorSil" class="button">Doktor Silme</a></li>
+                    <li><a href="http://127.0.0.1:8000/DoktorGoruntule" class="button">Doktor Görüntüleme</a></li>
+                </ul>
+            </div>
+            <div class="feature">
+                <h2>Hasta İşlemleri</h2>
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/HastaEkran" class="button">Hasta Ekleme</a></li>
+                    <li><a href="http://127.0.0.1:8000/HastaSil" class="button">Hasta Silme</a></li>
+                    <li><a href="http://127.0.0.1:8000/HastaGoruntule" class="button">Hasta Görüntüleme</a></li>
+                </ul>
+            </div>
+            <div class="feature">
+                <h2>Randevu İşlemleri</h2>
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/DoktorRandevuEkran" class="button">Randevu Görüntüleme</a></li>
+                    <li><a href="http://127.0.0.1:8000/DoktorRandevuEkran" class="button">Randevu Silme</a></li>
+                </ul>
+            </div>
+            <div class="feature">
+                <h2>Rapor İşlemleri</h2>
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/RaporGoruntule" class="button">Rapor Görüntüleme</a></li>
+                    <li><a href="http://127.0.0.1:8000/RaporSil" class="button">Rapor Silme</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

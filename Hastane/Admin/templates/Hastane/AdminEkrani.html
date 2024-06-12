@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Giriş Ekranı</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form id="adminLoginForm">
+        <h2>Admin Girişi</h2>
+        <label for="username">Kullanıcı Adı:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Giriş Yap">
+    </form>
+
+    <script>
+        document.getElementById("adminLoginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Burada giriş bilgilerini kontrol etmek için JavaScript kullanabilirsiniz.
+            // Örneğin, bir API'ye istek gönderebilir veya doğrulama işlemlerini gerçekleştirebilirsiniz.
+            // Bu örnekte sadece konsola yazdırıyoruz.
+            console.log("Kullanıcı Adı:", username);
+            console.log("Şifre:", password);
+
+            // Yönlendirme işlemi
+            window.location.href = "http://127.0.0.1:8000/AdminYonetimEkrani";
+        });
+    </script>
+</body>
+</html>

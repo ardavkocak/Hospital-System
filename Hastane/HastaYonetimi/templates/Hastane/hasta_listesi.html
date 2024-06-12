@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasta Listesi</title>
+</head>
+<body>
+    <h1>Hasta Listesi</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Doğum Tarihi</th>
+                <th>Cinsiyet</th>
+                <th>Telefon Numarası</th>
+                <th>Adres</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in hasta_listesi %}
+                <tr>
+                    <td>{{ patient.patient_id }}</td>
+                    <td>{{ patient.patient_name }}</td>
+                    <td>{{ patient.patient_last_name }}</td>
+                    <td>{{ patient.p_birth_date }}</td>
+                    <td>{{ patient.p_gender }}</td>
+                    <td>{{ patient.phone_number }}</td>
+                    <td>{{ patient.p_address }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

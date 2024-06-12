@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hasta Silme Ekranı</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: #dc3545; /* Kırmızı */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+    button:hover {
+        background-color: #c82333; /* Koyu Kırmızı */
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Hasta Silme Ekranı</h1>
+    <form id="hastaSilForm">
+        <label for="hastalar">Hasta Seçin:</label>
+        <select id="hastalar" name="hastalar">
+            <option value="hasta1">Hasta 1 - John Doe</option>
+            <option value="hasta2">Hasta 2 - Jane Doe</option>
+            <option value="hasta3">Hasta 3 - Alice Smith</option>
+            <!-- İhtiyaca göre daha fazla hasta seçeneği ekleyebilirsiniz -->
+        </select>
+        <button type="button" onclick="hastayiSil()">Hastayı Sil</button>
+    </form>
+</div>
+
+<script>
+    function hastayiSil() {
+        var selectElement = document.getElementById("hastalar");
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        var hasta = selectedOption.value;
+
+        if (confirm("Seçtiğiniz hastayı silmek istediğinizden emin misiniz?")) {
+            // Burada hastayı silme işlemi yapabilirsiniz
+            alert("Seçtiğiniz hasta başarıyla silindi!");
+            // Silme işleminden sonra seçili seçeneği kaldır
+            selectElement.remove(selectElement.selectedIndex);
+        }
+    }
+</script>
+
+</body>
+</html>

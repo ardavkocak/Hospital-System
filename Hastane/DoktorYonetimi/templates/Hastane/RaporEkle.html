@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tıbbi Raporlar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #6c481f; /* Kahverengi tonu */
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button[type="submit"] {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #raporListesi {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #raporListesi li {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Tıbbi Raporlar</h1>
+
+    <h2>Raporları Görüntüle</h2>
+    <ul id="raporListesi">
+        <!-- Burada raporların listesi dinamik olarak oluşturulacak -->
+    </ul>
+
+    <h2>Rapor Ekle</h2>
+    <form id="raporEkleForm">
+        <label for="hastaAdi">Hasta Adı:</label>
+        <input type="text" id="hastaAdi" name="hastaAdi" required><br>
+        
+        <label for="raporMetni">Rapor Metni:</label><br>
+        <textarea id="raporMetni" name="raporMetni" rows="4" cols="50" required></textarea><br>
+
+        <button type="submit">Rapor Ekle</button>
+    </form>
+</div>
+
+<script>
+    // Rapor ekleme formunu dinle
+    document.getElementById('raporEkleForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Sayfanın yenilenmesini engelle
+
+        // Formdaki verileri al
+        var hastaAdi = document.getElementById('hastaAdi').value;
+        var raporMetni = document.getElementById('raporMetni').value;
+
+        // Yeni raporu oluştur
+        var yeniRapor = document.createElement('li');
+        yeniRapor.textContent = `${hastaAdi}: ${raporMetni}`;
+
+        // Raporları listeye ekle
+        document.getElementById('raporListesi').appendChild(yeniRapor);
+
+        // Formu sıfırla
+        document.getElementById('raporEkleForm').reset();
+    });
+</script>
+
+</body>
+</html>
