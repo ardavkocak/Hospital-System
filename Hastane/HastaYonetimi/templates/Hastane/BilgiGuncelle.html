@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasta Bilgileri Güncelleme</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="date"], input[type="tel"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .success {
+            color: green;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hasta Bilgileri Güncelleme</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        {% if success %}
+            <p class="success">{{ success }}</p>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <label for="firstname">Ad:</label>
+            <input type="text" id="firstname" name="firstname" value="{{ patient.patient_name }}" required>
+
+            <label for="lastname">Soyad:</label>
+            <input type="text" id="lastname" name="lastname" value="{{ patient.patient_last_name }}" required>
+
+            <label for="birth_date">Doğum Tarihi:</label>
+            <input type="date" id="birth_date" name="birth_date" value="{{ patient.p_birth_date }}" required>
+
+            <label for="gender">Cinsiyet:</label>
+            <input type="text" id="gender" name="gender" value="{{ patient.p_gender }}" required>
+
+            <label for="phone">Telefon:</label>
+            <input type="tel" id="phone" name="phone" value="{{ patient.phone_number }}" required>
+
+            <label for="address">Adres:</label>
+            <input type="text" id="address" name="address" value="{{ patient.p_address }}" required>
+
+            <input type="submit" value="Güncelle">
+        </form>
+    </div>
+</body>
+</html>

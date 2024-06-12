@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doktor Sil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        select, input[type="submit"] {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #dc3545;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c82333;
+        }
+
+        .message {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Doktor Sil</h1>
+        {% if error_message %}
+            <p class="message error">{{ error_message }}</p>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <label for="doktor_id">Silmek İstediğiniz Doktoru Seçin:</label>
+            <select id="doktor_id" name="doktor_id" required>
+                {% for doktor in doktorlar %}
+                    <option value="{{ doktor.pk }}">{{ doktor.doctor_name }} {{ doktor.doctor_last_name }} - {{ doktor.speciality }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Doktoru Sil">
+        </form>
+        <h2>Mevcut Doktorlar</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Uzmanlık</th>
+                    <th>Hastane</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doktor in doktorlar %}
+                <tr>
+                    <td>{{ doktor.doctor_id }}</td>
+                    <td>{{ doktor.doctor_name }}</td>
+                    <td>{{ doktor.doctor_last_name }}</td>
+                    <td>{{ doktor.speciality }}</td>
+                    <td>{{ doktor.hospital_works_in }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

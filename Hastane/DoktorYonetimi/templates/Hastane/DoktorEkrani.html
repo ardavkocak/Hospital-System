@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doktor Ekranı</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container {
+        width: 100%;
+        max-width: 860px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 10px;
+    }
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        flex: 1 1 200px; /* Butonların esnek olmasını sağlar ve minimum genişlik ayarlar */
+        max-width: 200px; /* Butonların maksimum genişlik ayarı */
+    }
+    .button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Doktor Ekranı</h1>
+    <div class="button-container">
+        <a href="https://127.0.0.1:8000/RaporEkle"><button class="button">Tıbbi Rapor Ekleme</button></a>
+        <a href="https://127.0.0.1:8000/RaporSil"><button class="button">Tıbbi Rapor Silme</button></a>
+        <a href="https://127.0.0.1:8000/RaporGoruntule"><button class="button">Tıbbi Rapor Görüntüleme</button></a>
+        <a href="https://127.0.0.1:8000/HastaOlustur"><button class="button">Hasta Ekleme</button></a>
+        <a href="https://127.0.0.1:8000/Hastacikart"><button class="button">Hasta Silme</button></a>
+        <a href="https://127.0.0.1:8000/hastalistesi"><button class="button">Hasta Görüntüleme</button></a>
+        <a href="https://127.0.0.1:8000/RandevuSil"><button class="button">Randevu Silme</button></a>
+        <a href="https://127.0.0.1:8000/RandevuEkle"><button class="button">Randevu Ekle</button></a>
+        <a href="https://127.0.0.1:8000/RandevuGoruntule"><button class="button">Randevu Görüntüleme</button></a>
+    </div>
+</div>
+
+</body>
+</html>

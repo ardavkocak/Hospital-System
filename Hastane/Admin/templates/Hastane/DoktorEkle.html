@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doktor Oluştur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .message {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Doktor Oluştur</h1>
+        {% if success %}
+            <p class="message">Doktor başarıyla oluşturuldu!</p>
+        {% endif %}
+        {% if error_message %}
+            <p class="message error">{{ error_message }}</p>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <label for="ad">Ad:</label>
+            <input type="text" id="ad" name="ad" required>
+
+            <label for="soyad">Soyad:</label>
+            <input type="text" id="soyad" name="soyad" required>
+
+            <label for="uzmanlik">Uzmanlık:</label>
+            <input type="text" id="uzmanlik" name="uzmanlik" required>
+
+            <label for="hastane">Çalıştığı Hastane:</label>
+            <input type="text" id="hastane" name="hastane" required>
+
+            <input type="submit" value="Doktor Oluştur">
+        </form>
+    </div>
+</body>
+</html>
